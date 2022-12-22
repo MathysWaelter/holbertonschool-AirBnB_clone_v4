@@ -6,6 +6,8 @@ $(document).ready(function() {
       $('div#api_status').removeClass('available');
     }
   });
+
+  })
     // Create an empty list to store the Amenity IDs
     var amenityNames = [];
   
