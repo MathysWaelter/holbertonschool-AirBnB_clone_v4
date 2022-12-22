@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $.get('http://127.0.0.1:5001/api/v1/status/', function(xhr) {
+  $.get('http://127.0.0.1:5001/api/v1/places_search/', function(xhr) {
     if(xhr.status === 'OK') {
       $('div#api_status').addClass('available');
     } else {
