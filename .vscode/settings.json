@@ -1,3 +1,4 @@
 {
-    "liveServer.settings.port": 5002
+    "liveServer.settings.port": 5002,
+    "files.autoSave": "afterDelay"
 }

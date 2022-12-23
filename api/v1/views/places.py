@@ -117,6 +117,8 @@ def put_place(place_id):
     return make_response(jsonify(place.to_dict()), 200)
 
 
+import sys
+
 @app_views.route('/places_search', methods=['POST'], strict_slashes=False)
 @swag_from('documentation/place/post_search.yml', methods=['POST'])
 def places_search():
@@ -134,6 +136,9 @@ def places_search():
         states = data.get('states', None)
         cities = data.get('cities', None)
         amenities = data.get('amenities', None)
+        print(amenities, file=sys.stdout)
+        
+        
 
     if not data or not len(data) or (
             not states and
@@ -163,10 +168,13 @@ def places_search():
                     if place not in list_places:
                         list_places.append(place)
 
+    print("Hello")
+    print(amenities)
     if amenities:
         if not list_places:
             list_places = storage.all(Place).values()
         amenities_obj = [storage.get(Amenity, a_id) for a_id in amenities]
+        print(amenities_obj)
         list_places = [place for place in list_places
                        if all([am in place.amenities
                                for am in amenities_obj])]
